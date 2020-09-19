@@ -1,17 +1,18 @@
 import csv
 import math
 
-directory = "C:\Users\Amit\python-project-amit-patle-au9"
+directory = "C:\\Users\\Amit\\python-project-amit-patle-au9\\Database\\"
 
 
-def display_title_bar():
-    print("***  WELCOME TO CAR BOOKING SYSTEM  ***")
+def title_display():
+    print("----------------------------------------")
+    print("####  WELCOME TO CAR BOOKING SYSTEM  ###")
+    print("----------------------------------------")
 
-
-def display_menu_bar():
-    print("PLEASE SELECT BELOW MENU")
-    print("1. ADD RIDER")
-    print("2. ADD DRIVER/CAB")
+def menu_display():
+    print("PLEASE SELECT BELOW OPTION")
+    print("1. REGISTER RIDER")
+    print("2. REGISTER DRIVER/CAB")
     print("3. UPDATE CAB LOCATION")
     print("4. UPDATE AVAILABILITY")
     print("5. BOOK A CAB")
@@ -20,37 +21,33 @@ def display_menu_bar():
     print("8. EXIT APPLICATION")
 
 
-def add_rider():
+def register_rider():
     print("PLEASE ADD RIDER DETAILS")
     Name = input("PLEASE ENTER YOUR NAME: ")
     Age = input("PLEASE ENTER YOUR AGE: ")
-    Gender = input("PLEASE ENTER YOUR Gender: ")
     Contact = input("PLEASE ENTER YOUR CONTACT: ")
     filename = directory+"Rider.csv"
-    header = ("Name", "Age", "Gender", "Contact")
-    data = [(Name, Age, Gender, Contact)]
+    header = ("Name", "Age", "Contact")
+    data = [(Name, Age, Contact)]
     writer(header, data, filename, "write")
     print("BOOKING ADDED SUCCESSFULY!!!")
     main()
 
 
-def add_driver_cab():
+def register_driver_cab():
     print("PLEASE ADD DRIVER/CAB DETAILS")
     Name = input("PLEASE ENTER YOUR NAME: ")
     Age = input("PLEASE ENTER YOUR AGE: ")
-    Gender = input("PLEASE ENTER YOUR Gender: ")
     Location_X = input("PLEASE ENTER YOUR LOCATION X: ")
     Location_Y = input("PLEASE ENTER YOUR LOCATION Y: ")
     CabNumber = input("PLEASE ENTER YOUR Cab NUMBER: ")
-    CabName = input("PLEASE ENTER YOUR Cab NAME: ")
-    DLNumber = input("PLEASE ENTER YOUR DL NUMBER: ")
     Switch = input("PLEASE ENTER YOUR AVAILABILITY NUMBER: ")
     Contact = input("PLEASE ENTER YOUR CONTACT: ")
     filename = directory+"Driver_Cab.csv"
-    header = ("Name", "Age", "Gender", "Location_X",
-              "Location_Y", "CabNumber", "CabName", "DLNumber", "Switch", "Contact")
-    data = [(Name, Age, Gender, Location_X, Location_Y,
-             CabNumber, CabName, DLNumber, Switch, Contact)]
+    header = ("Name", "Age", "Location_X",
+              "Location_Y", "CabNumber", "Switch", "Contact")
+    data = [(Name, Age, Location_X, Location_Y,
+             CabNumber, Switch, Contact)]
     writer(header, data, filename, "write")
     print("DRIVER/CAB ADDED SUCCESSFULY!!!")
     main()
@@ -128,8 +125,8 @@ def book_cab():
     Name = input("PLEASE ENTER YOUR NAME: ")
     Location_X = input("PLEASE ENTER YOUR LOCATION X: ")
     Location_Y = input("PLEASE ENTER YOUR LOCATION Y: ")
-    Date = input("PLEASE ENTER YOUR DATE: ")
-    Time = input("PLEASE ENTER YOUR TIME: ")
+    Date = input("PLEASE ENTER DATE: ")
+    Time = input("PLEASE ENTER TIME: ")
     filename = directory+"Booking.csv"
     header = ("Name", "Location_X",
               "Location_Y", "Date", "Time", "TripEnd", "CabNumber")
@@ -165,9 +162,9 @@ def book_cab():
 def execute_operation():
     menuvalue = int(input("PLEASE ENTER THE OPTION: "))
     if(menuvalue == 1):
-        add_rider()
+        register_rider()
     elif(menuvalue == 2):
-        add_driver_cab()
+        register_driver_cab()
     elif(menuvalue == 3):
         update_cab_location()
     elif(menuvalue == 4):
@@ -180,6 +177,8 @@ def execute_operation():
         update_trip_end()
     elif(menuvalue == 8):
         exit()
+    else:
+        print("Enter Valid Option")
 
 
 def writer(header, data, filename, option):
@@ -199,8 +198,8 @@ def writer(header, data, filename, option):
 
 
 def main():
-    display_title_bar()
-    display_menu_bar()
+    title_display()
+    menu_display()
     execute_operation()
 
 

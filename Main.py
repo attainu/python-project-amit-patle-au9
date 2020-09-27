@@ -1,7 +1,7 @@
 import csv
 import math
 
-directory = "C:\\Users\\Amit\\python-project-amit-patle-au9\\Database\\"
+directory = "C:\\Users\\Lenovo\\Amit\\python-project-amit-patle-au9\\Database\\"
 
 
 def title_display():
@@ -42,6 +42,7 @@ def register_driver_cab():
     Location_Y = input("PLEASE ENTER YOUR LOCATION Y: ")
     CabNumber = input("PLEASE ENTER YOUR Cab NUMBER: ")
     Switch = input("PLEASE ENTER YOUR AVAILABILITY NUMBER: ")
+    
     Contact = input("PLEASE ENTER YOUR CONTACT: ")
     filename = directory+"Driver_Cab.csv"
     header = ("Name", "Age", "Location_X",
@@ -177,8 +178,7 @@ def execute_operation():
         update_trip_end()
     elif(menuvalue == 8):
         exit()
-    else:
-        print("Enter Valid Option")
+    
 
 
 def writer(header, data, filename, option):
